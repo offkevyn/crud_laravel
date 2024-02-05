@@ -79,10 +79,24 @@ class ContactController extends Controller
         }
     }
 
+    public function show($id)
+    {
+        try {
+            $contact = $this->exist($id);
+
+            if (!empty($contact)) {
+                return view('contact/details', ['contact' => $contact]);
+            } else
+                return redirect()->route('contacts-index')->with('resposta', 400);
+        } catch (\Exception) {
+            return redirect()->route('contacts-index')->with('resposta', 500);
+        }
+    }
+
     public function exist($id)
     {
-        $user = Contact::where('id', $id)->first();
+        $contact = Contact::where('id', $id)->first();
 
-        return $user;
+        return $contact;
     }
 }
