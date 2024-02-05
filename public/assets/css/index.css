@@ -1,0 +1,155 @@
+/* Table */
+#main_table {
+    padding: 0 20px;
+    margin: auto;
+    max-width: 1200px;
+    overflow-x: auto;
+}
+
+#main_table table {
+    white-space: nowrap;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-collapse: separate !important;
+    border-radius: 5px;
+}
+
+#main_table .table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, .04);
+}
+
+#main_table table thead th {
+    color: #2E2F91;
+    text-align: center;
+    border-top: 0 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3) !important;
+}
+
+#main_table table tbody tr td {
+    color: black;
+    max-width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#main_table table tbody tr td,
+#main_table table tbody tr {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 25px;
+}
+
+#main_table table tbody tr td abbr {
+    padding: 5px 10px;
+    margin-left: 2px;
+    font-size: 20px;
+    opacity: 80%;
+}
+
+#main_table table tbody tr td abbr:hover {
+    opacity: 100%;
+    cursor: pointer;
+}
+
+#main_table table .acoes {
+    width: 150px;
+}
+
+#main_table table tbody tr td .acao_apagar {
+    color: #FF0042;
+}
+
+#main_table table tbody tr td .acao_editar {
+    color: #FF7800;
+}
+
+#main_table table tbody tr td .acao_detalhes {
+    color: #004EFF;
+}
+
+#main_table table tbody tr td .acao_download {
+    color: #A200FF;
+}
+
+main h1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 3rem;
+    font-weight: 300;
+    color: #2e2f91;
+}
+
+main h2 {
+    margin-top: -20px;
+    margin-bottom: 30px;
+    font-weight: 300;
+    color: #2e2f91;
+}
+
+@property --myColor1 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #439881;
+}
+
+@property --myColor2 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: #53ca03;
+}
+
+main #btn_criar {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+
+    background-color: #439881;
+    /* For browsers that do not support gradients */
+    background-image: linear-gradient(to top left, var(--myColor1), var(--myColor2));
+    color: #FEFEFE;
+
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.3rem;
+
+    margin-bottom: 30px;
+
+    box-shadow: 3px 4px 20px 0 rgba(3, 36, 80, 0.644);
+    opacity: 80%;
+
+
+    transition: --myColor1 1s, --myColor2 1s, all .5s;
+}
+
+main #btn_criar :first-child {
+    vertical-align: top;
+}
+
+main #btn_criar :last-child {
+    font-size: 2.2rem;
+    font-weight: 100;
+}
+
+main #btn_criar:hover {
+    opacity: 100%;
+    box-shadow: 3px 8px 20px 0 rgba(3, 36, 80, 0.644);
+
+    background-color: #439881;
+    /* For browsers that do not support gradients */
+    --myColor1: #53ca03;
+    --myColor2: #439881;
+    text-decoration: none;
+}
+
+/* Paginacao */
+#paginacao nav ul {
+    margin-bottom: 0;
+}
+
+#paginacao .small {
+    display: none;
+}
+
+#paginacao > span {
+    float: right;
+    margin-bottom: 15px;
+}
