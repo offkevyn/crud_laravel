@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Contact;
 
 use App\Models\Contact;
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ContactStoreUpdateRequest extends FormRequest
@@ -25,7 +26,12 @@ class ContactStoreUpdateRequest extends FormRequest
         $rules = [
             'name' => 'required|string|min:5|max:255',
             'contact' => 'required|numeric|digits:9',
-            'email' => 'required|email|max:255',
+            'email' => [
+                'required',
+                'email',
+                'max:255',
+                Rule::unique('App\Models\Contact', 'email'),
+            ],
         ];
 
         if ($this->getMethod() === 'PUT') {
@@ -34,7 +40,7 @@ class ContactStoreUpdateRequest extends FormRequest
                 'required',
                 'email',
                 'max:255',
-                Contact::unique('App\Models\Contact', 'email')->ignore($contactId),
+                Rule::unique('App\Models\Contact', 'email')->ignore($contactId),
             ];
         }
 
