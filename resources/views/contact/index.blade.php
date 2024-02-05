@@ -9,7 +9,7 @@
     <div id="main_table">
         <h1>Index</h1>
 
-        <a id="btn_criar" href=""><span>Criar</span> <span>+</span></a>
+        <a id="btn_criar" href="{{ route('contacts-create') }}"><span>Criar</span> <span>+</span></a>
 
         <table class="table table-hover">
             <thead>

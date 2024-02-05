@@ -1,0 +1,115 @@
+/* Form */
+main h1 {
+    margin: 30px var(--margin_main);
+    font-size: 3rem;
+    font-weight: 300;
+    color: #2e2f91;
+    text-align: center;
+}
+
+main h2 {
+    margin-left: var(--margin_main);
+    margin-top: -20px;
+    margin-bottom: 30px;
+    font-weight: 300;
+    color: #2e2f91;
+}
+
+main h4 {    
+    margin: 0 auto;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    
+    font-weight: 300;
+    color: #2e2f91;
+    text-align: center;
+
+    max-width: 600px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#main_form {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.025);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#main_form select:required:invalid {
+    color: gray;
+}
+
+#main_form select option[value=""][disabled] {
+    display: none;
+}
+
+#main_form select option {
+    color: #3b3b3b;
+}
+
+#main_form .form-group abbr {
+    text-decoration: none;
+    color: #FF0042;
+}
+
+
+#main_form button:not(.select2 button),
+#main_form fieldset button:not(.select2 button){
+    display: block;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 5px;
+
+    background-color: #439881;
+    /* For browsers that do not support gradients */
+    background-image: linear-gradient(to top left, #439881, #53ca03);
+    color: #FEFEFE;
+
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.3rem;
+
+    margin-right: 0;
+    margin-left:auto;
+
+    margin-top: 30px;
+
+    box-shadow: 2px 3px 15px 0 rgba(3, 36, 80, 0.644);
+    opacity: 80%;
+}
+
+#main_form button:not(.select2 button):hover {
+    opacity: 100%;
+    box-shadow: 4px 6px 15px 0 rgba(3, 36, 80, 0.644);
+    text-decoration: none;
+}
+
+/* Select2 */
+
+#main_form .form-group .select2-container .select2-selection--single {
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+}
+
+#main_form .form-group .select2-container .select2-selection--single .select2-selection__rendered{
+    padding-left: 0;
+}
+
+#main_form .form-group .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: calc(1.5em + 0.75rem + 2px);
+}
+
+@media(max-width: 700px) {
+    main h1 {
+        font-size: 2rem;
+    }
+
+    main h4 {    
+        max-width: 300px;
+    }
+}
