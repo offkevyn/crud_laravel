@@ -43,4 +43,46 @@ class ContactController extends Controller
             return redirect()->route('contacts-index')->with('resposta', 500);
         }
     }
+
+    public function edit($id)
+    {
+        try {
+            $contact = $this->exist($id);
+
+
+            if (!empty($contact)) {
+                return view('Contact/edit', ['contact' => $contact]);
+            } else
+                return redirect()->route('contacts-index')->with('resposta', 400);
+        } catch (\Exception) {
+            return redirect()->route('contacts-index')->with('resposta', 500);
+        }
+    }
+
+    public function update(ContactStoreUpdateRequest $request, $id)
+    {
+        try {
+            if (!empty($this->exist($id))) {
+                $data = [
+                    'name' => $request->name,
+                    'contact' => $request->contact,
+                    'email' => $request->email,
+                ];
+
+                Contact::where('id', $id)->update($data);
+
+                return redirect()->route('contacts-index')->with('resposta', 200);
+            } else
+                return redirect()->route('contacts-index')->with('resposta', 400);
+        } catch (\Exception) {
+            return redirect()->route('contacts-index')->with('resposta', 500);
+        }
+    }
+
+    public function exist($id)
+    {
+        $user = Contact::where('id', $id)->first();
+
+        return $user;
+    }
 }

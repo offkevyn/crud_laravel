@@ -33,7 +33,7 @@
                         <td class="d-flex justify-content-between acoes">
                             <abbr onclick="mostrar_popup({{ $contact->id }})" title="Apagar"><a class="acao_apagar"><i
                                         class="fa fa-trash-o"></i></a></abbr>
-                            <abbr title="Editar"><a href="" class="acao_editar"><i
+                            <abbr title="Editar"><a href="{{ route('contacts-edit', ['id' => $contact->id]) }}" class="acao_editar"><i
                                         class="fa fa-pencil"></i></a></abbr>
                             <abbr title="Detalhes"><a href="" class="acao_detalhes"><i
                                         class="fa fa-file-text-o"></i></a></abbr>
