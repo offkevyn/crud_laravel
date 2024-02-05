@@ -93,6 +93,35 @@ class ContactController extends Controller
         }
     }
 
+    public function showJson($id)
+    {
+        try {
+            $contact = $this->exist($id);
+
+            if (!empty($contact)) {
+                return response()->json($contact, 200);
+            } else
+                return response()->json([], 200);
+        } catch (\Exception) {
+            return response()->json([], 200);
+        }
+    }
+
+    public function destroy($id)
+    {
+        try {
+            if (!empty($this->exist($id))) {
+
+                Contact::where('id', $id)->delete();
+
+                return redirect()->route('contacts-index')->with('resposta', 200);
+            } else
+                return redirect()->route('contacts-index')->with('resposta', 400);
+        } catch (\Exception) {
+            return redirect()->route('contacts-index')->with('resposta', 500);
+        }
+    }
+
     public function exist($id)
     {
         $contact = Contact::where('id', $id)->first();

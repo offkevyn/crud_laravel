@@ -66,7 +66,7 @@
                             </div>
                             <div class="sub_item">
                                 <span>Email: </span>
-                                ${data.age != null ? data.email : '--'}
+                                ${data.email != null ? data.email : '--'}
                             </div>
                         </div>
                         <form method="POST" action="${'{{ Request::url() }}' + '/' + id}">

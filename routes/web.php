@@ -25,4 +25,6 @@ Route::prefix('contacts')->group(function () {
     Route::get('/{id}', [ContactController::class, 'show'])->where('id', '[0-9]+')->name('contacts-show');
     Route::get('/{id}/edit', [ContactController::class, 'edit'])->where('id', '[0-9]+')->name('contacts-edit');
     Route::put('/{id}', [ContactController::class, 'update'])->where('id', '[0-9]+')->name('contacts-update');
+    Route::get('/{id}/json', [ContactController::class, 'showJson'])->where('id', '[0-9]+')->name('contacts-show-json');
+    Route::delete('/{id}', [ContactController::class, 'destroy'])->where('id', '[0-9]+')->name('contacts-destroy');
 });
