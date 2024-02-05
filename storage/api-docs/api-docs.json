@@ -1,0 +1,688 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Nice API",
+        "contact": {
+            "email": "kevynsilva42@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/client/pagination/": {
+            "get": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Paginated Client List",
+                "operationId": "281d6249f1a7ff750c573467424c0d4a",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit of items per page",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Offset of items per page",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/client/{id}": {
+            "get": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Show Client",
+                "operationId": "c1e13d533fe166d0e26dfe5ae15110a8",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Client ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Delete Client",
+                "operationId": "52090c80d112b85ad3373d7aa9598535",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Client ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/client/": {
+            "put": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Update Client",
+                "operationId": "88953fc913366f8fa68f4d3bfdf2f2fa",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "query",
+                        "description": "Client object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": 1,
+                                "name": "Carlos Correia",
+                                "email": "carlos@gmail.com",
+                                "active": true,
+                                "role_id": 2,
+                                "tag_ids": [
+                                    1,
+                                    2,
+                                    3
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Client"
+                ],
+                "summary": "Create Client",
+                "operationId": "263f41613f47786d7217fd2f632d451f",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "query",
+                        "description": "Client object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "name": "Carlos Correia",
+                                "email": "carlos@gmail.com",
+                                "role_id": 2,
+                                "tag_ids": [
+                                    1,
+                                    2,
+                                    3
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "Login user",
+                "operationId": "3f5c87bf1775ece4fb4112b823149359",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "query",
+                        "description": "User Object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "email": "offCarlito@gmail.com",
+                                "password": "123456",
+                                "device_name": "smartphone offkevyn xiaomi"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "422": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/api/login/validate-token": {
+            "get": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "validate token",
+                "operationId": "552439f00e35a4b520ee47106d1e1136",
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "422": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/login/logout": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "logout",
+                "operationId": "76e259b8ef921ef9b69031afcea4a76d",
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "422": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/login/logout-all": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "logout all",
+                "operationId": "56851f576346a5f73e2252357fa3b2b6",
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "422": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/login/first-access": {
+            "patch": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "first access",
+                "operationId": "834c1d559a90430043111e36d492a79f",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "query",
+                        "description": "Login Object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "password": "123321",
+                                "password_confirmation": "123321"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "422": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/role": {
+            "get": {
+                "tags": [
+                    "Role"
+                ],
+                "summary": "list Roles",
+                "operationId": "a689f497857cace9537e89a7e30da605",
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/tag/pagination/": {
+            "get": {
+                "tags": [
+                    "Tag"
+                ],
+                "summary": "Paginated Tag List",
+                "operationId": "ef5f4e1e14958e6f3eb5898d223506ad",
+                "parameters": [
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Limit of items per page",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "offset",
+                        "in": "query",
+                        "description": "Offset of items per page",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/tag/simple_list/": {
+            "get": {
+                "tags": [
+                    "Tag"
+                ],
+                "summary": "Simple Tag List",
+                "operationId": "a580235f884c406d83edfff8c953981a",
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/tag/{id}": {
+            "get": {
+                "tags": [
+                    "Tag"
+                ],
+                "summary": "Show Tag",
+                "operationId": "1e5d9fbd516f89481b5a822b45bdc46a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Tag ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Tag"
+                ],
+                "summary": "Delete Tag",
+                "operationId": "8697629985ae55df81b18a9010b7f866",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Tag ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/tag/": {
+            "put": {
+                "tags": [
+                    "Tag"
+                ],
+                "summary": "Update Tag",
+                "operationId": "df2a79b4c74626536fba52dea66f18df",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "query",
+                        "description": "Tag object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "id": 1,
+                                "name": "Aprovado"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Tag"
+                ],
+                "summary": "Create Tag",
+                "operationId": "a1d0a55e5a5c7456ccea517c320d8d13",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "query",
+                        "description": "Tag object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "example": {
+                                "name": "Aprovado"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Response Successful"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "sanctum": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token>)",
+                "name": "Authorization",
+                "in": "header"
+            }
+        }
+    }
+}
